@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -19,9 +18,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       padding: 20px;
     }
+    html, body { overflow-y: auto; }
     .container {
       background-color: #ffffffee;
       border-radius: 20px;
@@ -95,16 +95,16 @@
       </div>
       <button class="button primary-btn" onclick="nextStep(2)">Quero saber mais sobre o pack...</button>
     </div>
-    <div class="step" id="step2">
+    <div class="step" id="step2" style="padding-top: 20px;">
       <h1>Veja alguns depoimentos de alguns de nossos clientes:</h1>
       <div class="image-placeholder"><img src="https://res.cloudinary.com/dnogjthya/image/upload/v1747735964/Captura_de_tela_2025-05-15_085435_uysood.png"></div>
       <div class="image-placeholder"><img src="https://res.cloudinary.com/dnogjthya/image/upload/v1747735963/Captura_de_tela_2025-05-15_085618_fejwif.png"></div>
       <button class="button primary-btn" onclick="nextStep(3)">Continuar</button>
     </div>
     <div class="step" id="step3">
-      <h1>VOCÊ GANHOU UMA PROMOÇÃO ESPECIAL !</h1>
-      <p class="promo-title">ALÉM DESSA PROMOÇÃO DE 6 LIVROS POR R$0,99</p>
-      <p class="promo-subtitle">Você vai ganhar mais 20 livros avaliados todos em mais de <span class="highlight-price">R$1000,00</span></p>
+      <h1><span style="color: red; font-size: 24px; font-weight: bold;">VOCÊ GANHOU UMA PROMOÇÃO ESPECIAL !</span></h1>
+      <p class="promo-title"><span style="color: red; font-size: 24px; font-weight: bold;">ALÉM DESSA PROMOÇÃO DE 6 LIVROS POR R$0,99</span></p>
+      <p class="promo-subtitle"><span style="color: black; font-weight: bold;">Você vai ganhar mais 20 livros avaliados todos em mais de </span><span class="highlight-price">R$1000,00</span></p>
       <div class="book-list">
         O Príncipe - Maquiavel<br>33 Estratégias de Guerra - Robert Greene<br>A Arte da Sedução - Robert Greene<br>
         A BATALHA PELA SUA MENTE - Dick Stephen<br>A Arte Da Guerra - Sun Tzu<br>ALÉM DO BEM E DO MAL - NIETZSCHE<br>
@@ -112,9 +112,9 @@
         O Idiota - Dostoievski<br>A REVOLUÇÃO DOS BICHOS - George Orwell<br>1984 - George Orwell<br>
         Mais Esperto que o diabo - Napoleão Hill<br>Manual de persuasão do FBI - Jack Schafer<br>
         Memórias do subsolo - Dostoiévski<br>Mentes Maquiavélicas<br>O EGO É SEU INIMIGO<br>QUEM PENSA ENRIQUECE<br>
-        Manual para vencer a pornografia
+        Manual para vencer a pornografia<br><br><span style="color: black; font-weight: bold;">E MUITO MAIS LIVROS QUE POUCOS PODEM TER ACESSO! + BÔNUS SURPRESA !!</span><br><br><span style="color: black; font-weight: bold;">DE R$1000 EM LIVROS</span><br><span style="color: black; font-weight: bold;">POR APENAS...</span>
       </div>
-      <p class="final-price">R$9,90</p>
+      <p class="final-price" style="color: red; font-size: 28px; font-weight: bold;">R$9,90</p>
       <button class="button primary-btn" onclick="window.location.href='https://pay.kiwify.com.br/L8o2VDe'">😱 QUERO ESSA PROMOÇÃO AGORA !!</button>
       <button class="button secondary-btn" onclick="nextStep(4)">😣 não, vou prosseguir com a oferta de R$0,99</button>
     </div>
@@ -127,15 +127,18 @@
       <button class="button primary-btn" onclick="window.location.href='https://pay.kiwify.com.br/x88Hg9M'">CONTINUAR</button>
     </div>
   </div>
-  <script>
-    function nextStep(step) {
-      const totalSteps = 4;
-      for (let i = 1; i <= totalSteps; i++) {
-        document.getElementById(`step${i}`).classList.remove('active');
-      }
-      document.getElementById(`step${step}`).classList.add('active');
-      document.getElementById('progress').style.width = `${(step / totalSteps) * 100}%`;
+  
+<script>
+  function nextStep(step) {
+    const totalSteps = 4;
+    for (let i = 1; i <= totalSteps; i++) {
+      document.getElementById(`step${i}`).classList.remove('active');
     }
-  </script>
+    document.getElementById(`step${step}`).classList.add('active');
+    document.getElementById('progress').style.width = `${(step / totalSteps) * 100}%`;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
 </body>
 </html>
