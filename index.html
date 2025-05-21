@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quiz - Pack de Livros</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #6e8efb, #a777e3);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      background-color: #ffffffee;
+      border-radius: 20px;
+      padding: 30px 20px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .progress-bar {
+      height: 8px;
+      background-color: #000;
+      width: 0;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      transition: width 0.5s ease;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #000;
+      font-weight: 700;
+    }
+    .image-placeholder img {
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+    }
+    .button {
+      border: none;
+      padding: 15px;
+      width: 100%;
+      border-radius: 12px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: background 0.3s ease;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .primary-btn {
+      background-color: #ff3300;
+      color: white;
+    }
+    .primary-btn:hover {
+      background-color: #cc2900;
+    }
+    .secondary-btn {
+      background-color: #ccc;
+      color: #333;
+    }
+    .secondary-btn:hover {
+      background-color: #bbb;
+    }
+    .step { display: none; }
+    .active { display: block; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="progress-bar" id="progress"></div>
+    <div class="step active" id="step1">
+      <h1>O Pack de Livros que Moldou Mentes Brilhantes</h1>
+      <div class="image-placeholder">
+        <img src="https://res.cloudinary.com/dnogjthya/image/upload/v1747736143/Inserir_um_t%C3%ADtulo_1_rnpwrt.jpg" alt="Step 1 Image">
+      </div>
+      <button class="button primary-btn" onclick="nextStep(2)">Quero saber mais sobre o pack...</button>
+    </div>
+    <div class="step" id="step2">
+      <h1>Veja alguns depoimentos de alguns de nossos clientes:</h1>
+      <div class="image-placeholder"><img src="https://res.cloudinary.com/dnogjthya/image/upload/v1747735964/Captura_de_tela_2025-05-15_085435_uysood.png"></div>
+      <div class="image-placeholder"><img src="https://res.cloudinary.com/dnogjthya/image/upload/v1747735963/Captura_de_tela_2025-05-15_085618_fejwif.png"></div>
+      <button class="button primary-btn" onclick="nextStep(3)">Continuar</button>
+    </div>
+    <div class="step" id="step3">
+      <h1>VOCÊ GANHOU UMA PROMOÇÃO ESPECIAL !</h1>
+      <p class="promo-title">ALÉM DESSA PROMOÇÃO DE 6 LIVROS POR R$0,99</p>
+      <p class="promo-subtitle">Você vai ganhar mais 20 livros avaliados todos em mais de <span class="highlight-price">R$1000,00</span></p>
+      <div class="book-list">
+        O Príncipe - Maquiavel<br>33 Estratégias de Guerra - Robert Greene<br>A Arte da Sedução - Robert Greene<br>
+        A BATALHA PELA SUA MENTE - Dick Stephen<br>A Arte Da Guerra - Sun Tzu<br>ALÉM DO BEM E DO MAL - NIETZSCHE<br>
+        AS 48 LEIS DO PODER - Robert Greene<br>O Método Da Chave Mestra - Auto Hipnose<br>ENGENHARIA SOCIAL<br>
+        O Idiota - Dostoievski<br>A REVOLUÇÃO DOS BICHOS - George Orwell<br>1984 - George Orwell<br>
+        Mais Esperto que o diabo - Napoleão Hill<br>Manual de persuasão do FBI - Jack Schafer<br>
+        Memórias do subsolo - Dostoiévski<br>Mentes Maquiavélicas<br>O EGO É SEU INIMIGO<br>QUEM PENSA ENRIQUECE<br>
+        Manual para vencer a pornografia
+      </div>
+      <p class="final-price">R$9,90</p>
+      <button class="button primary-btn" onclick="window.location.href='https://pay.kiwify.com.br/L8o2VDe'">😱 QUERO ESSA PROMOÇÃO AGORA !!</button>
+      <button class="button secondary-btn" onclick="nextStep(4)">😣 não, vou prosseguir com a oferta de R$0,99</button>
+    </div>
+    <div class="step" id="step4">
+      <h1 style="font-size: 26px;">CALMA O CORAÇÃO...</h1>
+      <p style="font-size: 22px; font-weight: bold;">VOCÊ ACABA DE GANHAR AQUELE PACK DE LIVROS DE R$1000 por R$5,00</p>
+      <div class="image-placeholder">
+        <img src="https://res.cloudinary.com/dnogjthya/image/upload/v1747736148/Inserir_um_t%C3%ADtulo_2_tqwzb2.jpg" alt="Promoção Final">
+      </div>
+      <button class="button primary-btn" onclick="window.location.href='https://pay.kiwify.com.br/x88Hg9M'">CONTINUAR</button>
+    </div>
+  </div>
+  <script>
+    function nextStep(step) {
+      const totalSteps = 4;
+      for (let i = 1; i <= totalSteps; i++) {
+        document.getElementById(`step${i}`).classList.remove('active');
+      }
+      document.getElementById(`step${step}`).classList.add('active');
+      document.getElementById('progress').style.width = `${(step / totalSteps) * 100}%`;
+    }
+  </script>
+</body>
+</html>
